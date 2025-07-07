@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Home | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header>
+    <h1>🎨 Sophia Zeichenportfolio</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="projekte.html">Zeichnungen</a>
+      <a href="kontakt.html">Kontakt</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="neueste-projekte">
+      <h2>🖌️ Aktuelle Projekte</h2>
+      <div class="grid" id="latest-projects"></div>
+    </section>
+
+    <section class="kategorien">
+      <h2>🎨 Kategorien</h2>
+      <ul>
+        <li>Original Charaktere</li>
+        <li>Redraws</li>
+        <li>Traditionell</li>
+      </ul>
+    </section>
+
+    <section class="newsletter">
+      <h2>📬 Newsletter abonnieren</h2>
+      <form>
+        <input type="email" placeholder="E-Mail-Adresse" required />
+        <button type="submit">Abonnieren</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Sophia Portfolio TBZ</p>
+  </footer>
+
+  <script src="projekt-data.js"></script>
+  <script>
+    const latestContainer = document.getElementById('latest-projects');
+    const latestProjects = projects.slice(-3);
+
+    latestProjects.forEach(proj => {
+      const article = document.createElement('article');
+      article.innerHTML = `
+        <img src="${proj.image}" alt="${proj.title}" />
+        <h3>${proj.title}</h3>
+        <p>Kategorie: ${proj.category.charAt(0).toUpperCase() + proj.category.slice(1)}</p>
+      `;
+      latestContainer.appendChild(article);
+    });
+  </script>
+</body>
+</html>

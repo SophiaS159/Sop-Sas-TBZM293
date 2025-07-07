@@ -1,0 +1,73 @@
+
+const projects = [
+    {
+    id: 1,
+    title: "Character Sheet",
+    category: "original",
+    image: "img/OCAngieCharacterDesign.PNG",
+    description: "Das ist der Character Sheet von meinem Character Angie.",
+  },
+  {
+    id: 2,
+    title: "Anderer Style Angie",
+    category: "original",
+    image: "img/OCAngie3.PNG",
+    description: "ich habe da einen neuen Style probiert und habe meine Lieblings Character gezeichnet.",
+  },
+  {
+    id: 3,
+    title: "Roblox Girl Redraw",
+    category: "redraws",
+    image: "img/RedrawBlue.PNG",
+    description: "Ich habe meine Kollegins Roblox Avatar gezeichnet.",
+  },
+  {
+    id: 4,
+    title: "OC Angie",
+    category: "original",
+    image: "img/OCAngie.PNG",
+    description: "Eine neue OC. Ihr Name ist Angie und ihre beste Kollegin ist Ragatha.",
+  },
+  {
+    id: 5,
+    title: "Stadt Gemälde",
+    category: "traditionell",
+    image: "img/Stadtgemälde.JPG",
+    description: "Traditionelles Stadtgemälde, das mit Acryl gemalt worden ist. Es war mein 3.Sek Projekt.",
+  },
+  {
+    id: 6,
+    title: "OC Angie Portrait",
+    category: "original",
+    image: "img/OCAngie2.PNG",
+    description: "Ein Gesicht Close Up von meinem OC.",
+  },
+  {
+    id: 7,
+    title: " New OC Ragatha",
+    category: "original",
+    image: "img/OCRagatha.PNG",
+    description: "Das ist Ragatha, meine neue OC und sie ist die beste Kollegin von Angie. ",
+  },
+  {
+    id: 8,
+    title: "Roblox Boy Redraw",
+    category: "redraws",
+    image: "img/RedrawPink.JPG",
+    description: "Eine digitale Zeichnung von einem Roblox Avatar.",
+  },
+  {
+    id: 9,
+    title: "Dogs Sketch",
+    category: "traditionell",
+    image: "img/dogssketch.jpg",
+    description: "Zeichnungen von Golden Retrivers.",
+  },
+  {
+    id: 10,
+    title: "FNaF Bonnie",
+    category: "traditionell",
+    image: "img/fnaf.PNG",
+    description: "Eine Zeichnung von Bonnie von Five Nights at Freddys.",
+  },
+];

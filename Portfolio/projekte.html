@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Projekte | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: white;
+      padding: 1.5rem;
+      max-width: 600px;
+      width: 90%;
+      border-radius: 8px;
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: 10px; right: 15px;
+      cursor: pointer;
+      font-size: 1.5rem;
+      font-weight: bold;
+      border: none;
+      background: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Projekte</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="projekte.html">Projekte</a>
+      <a href="kontakt.html">Kontakt</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="filter">
+      <label for="kategorie">Kategorie:</label>
+      <select id="kategorie">
+        <option value="alle">Alle</option>
+        <option value="original">Original Charaktere</option>
+        <option value="redraws">Redraws</option>
+        <option value="traditionell">Traditionell</option>
+      </select>
+    </section>
+
+    <section class="projekt-uebersicht grid" id="projects-container"></section>
+  </main>
+
+
+  <div class="modal" id="project-modal">
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close">&times;</button>
+      <img id="modal-img" src="" alt="" style="max-width: 65%; border-radius: 5px; margin-bottom: 1rem;" />
+      <h3 id="modal-title"></h3>
+      <p id="modal-category"></p>
+      <p id="modal-description"></p>
+
+      <h4>Kontaktformular</h4>
+      <form id="modal-contact-form">
+        <input type="text" placeholder="Name" required /><br />
+        <input type="email" placeholder="E-Mail" required /><br />
+        <textarea placeholder="Nachricht"></textarea><br />
+        <button type="submit">Anfrage senden</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Sophia Portfolio TBZ</p>
+  </footer>
+
+  <script src="projekt-data.js"></script>
+  <script>
+    const projectsContainer = document.getElementById('projects-container');
+    const filterSelect = document.getElementById('kategorie');
+    const modal = document.getElementById('project-modal');
+    const modalClose = document.getElementById('modal-close');
+    const modalImg = document.getElementById('modal-img');
+    const modalTitle = document.getElementById('modal-title');
+    const modalCategory = document.getElementById('modal-category');
+    const modalDescription = document.getElementById('modal-description');
+
+
+    function renderProjects(filter = 'alle') {
+      projectsContainer.innerHTML = '';
+      const filtered = filter === 'alle' ? projects : projects.filter(p => p.category === filter);
+
+      filtered.forEach(proj => {
+        const article = document.createElement('article');
+        article.classList.add('projekt-item');
+        article.style.cursor = 'pointer';
+        article.innerHTML = `
+          <img src="${proj.image}" alt="${proj.title}" />
+          <h3>${proj.title}</h3>
+          <p>Kategorie: ${proj.category.charAt(0).toUpperCase() + proj.category.slice(1)}</p>
+        `;
+
+        article.addEventListener('click', () => openModal(proj));
+        projectsContainer.appendChild(article);
+      });
+    }
+
+    function openModal(project) {
+      modalImg.src = project.image;
+      modalImg.alt = project.title;
+      modalTitle.textContent = project.title;
+      modalCategory.textContent = `Kategorie: ${project.category.charAt(0).toUpperCase() + project.category.slice(1)}`;
+      modalDescription.textContent = project.description;
+      modal.style.display = 'flex';
+    }
+
+    modalClose.addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    modal.addEventListener('click', e => {
+      if (e.target === modal) modal.style.display = 'none';
+    });
+
+    filterSelect.addEventListener('change', () => {
+      renderProjects(filterSelect.value);
+    });
+
+    renderProjects();
+  </script>
+</body>
+</html>
