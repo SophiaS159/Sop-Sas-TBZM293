@@ -2,7 +2,7 @@
 
 ## Projektübersicht
 
-In diesem Projekt habe ich ein digitales Portfolio mit mindestens 10 Projekten erstellt, inklusive Startseite, Projektübersicht, Detailseiten und Kontaktformular. Die Entwicklung erfolgte mit 100% eigenem HTML- und CSS-Code, ohne Frameworks.
+In diesem Projekt habe ich ein digitales Portfolio mit mindestens 10 Projekten erstellt, inklusive Startseite, Projektübersicht, Detailseiten und Kontaktformular. Die Entwicklung erfolgte mit viel Hilfe von KI und ohne Frameworks.
 
 ## Eingesetzte KI-Tools
 
